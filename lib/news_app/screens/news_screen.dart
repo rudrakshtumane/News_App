@@ -83,7 +83,7 @@ class NewsScreen extends StatelessWidget {
         onPressed: () {
           newsController.changeCategory(category.toLowerCase());
         },
-        child: Text(category, style: const TextStyle(color: Colors.red, fontSize: 15 ),),
+        child: Text(category, style: const TextStyle(color: Colors.deepPurple, fontSize: 15 ),),
       );
     });
   }
