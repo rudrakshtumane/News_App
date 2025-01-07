@@ -26,13 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.black,
+        color: Colors.deepPurple,
         child: Center(
           child : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('All In One', style: const TextStyle(color: Colors.white, fontSize: 35 ),),
-              Text('News', style: const TextStyle(color: Colors.red, fontSize: 70 ),),
+              Text('News', style: const TextStyle(color: Colors.black, fontSize: 70 ),),
             ],
           )
           ),

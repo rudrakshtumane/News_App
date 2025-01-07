@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
 
         body: Container(
-          child: Text('hello ')
+          child: Text('hello')
         )
         
 

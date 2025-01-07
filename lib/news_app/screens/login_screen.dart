@@ -1,98 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/news_app/screens/news_screen.dart';
+import 'package:pretty_animated_buttons/pretty_animated_buttons.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+// ignore: must_be_immutable
+class LoginScreen extends StatelessWidget {
+   LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   var emailText = TextEditingController();
   var passText = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SizedBox(
-          width: 400,
-          height: 350,
-          child: Card(
-            elevation: 18,
-            shadowColor: Colors.black,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+    return Material(
+      color: Colors.white,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 35,
+          ),
+          SizedBox(
+              height: 300, child: Image.asset("assets/images/hey_img.png")),
+          RichText(
+            text: TextSpan(
+              text: 'Login',
+              style: const TextStyle(color: Colors.black, fontSize: 35),
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Text(
-                    'LOGIN FORM',
-                    style: TextStyle(fontSize: 30),
-                  ),
+                TextSpan(
+                  text: ' Here',
+                  style:
+                      const TextStyle(color: Colors.deepPurple, fontSize: 35),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  width: 300,
-                  child: TextField(
-                    controller: emailText,
-                    decoration: InputDecoration(
-                      labelText: 'Enter Email Address',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(width: 2)),
-                      prefixIcon: Icon(
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: emailText,
+                  decoration: InputDecoration(
+                    labelText: 'Enter email address',
+                    prefixIcon: Icon(
                         Icons.mail,
-                        color: Colors.red,
+                        color: Colors.deepPurpleAccent,
                       ),
-                    ),
                   ),
+                  
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                SizedBox(
-                  width: 300,
-                  child: TextField(
-                    controller: passText,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Enter Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(width: 2)),
-                      prefixIcon: Icon(
+
+                TextFormField(
+                  controller: passText,
+                  decoration: InputDecoration(
+                    labelText: 'Enter password',
+                     prefixIcon: Icon(
                         Icons.password,
-                        color: Colors.red,
+                        color: Colors.deepPurpleAccent,
                       ),
-                    ),
                   ),
+                  obscureText: true,
                 ),
+
                 SizedBox(
                   height: 20,
                 ),
-
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 229, 5, 5),
-                        padding: EdgeInsets.symmetric(vertical: 6),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        elevation: 10,
-                      ),
-                      onPressed: () {
-                        String uEmail = emailText.text.toString();
+                
+                PrettyCapsuleButton(
+                  foregroundColor: Colors.black,
+                  bgColor: Colors.deepPurpleAccent,
+                  label: 'Login'.toUpperCase(),
+                  labelStyle: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                  ),
+                  onPressed: () {
+                     String uEmail = emailText.text.toString();
                         String uPass = passText.text.toString();
 
                         // Hardcoded credentials for demonstration
@@ -128,15 +111,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           );
                         }
-                      }, child: Text('Login', style: const TextStyle(color: Colors.white, fontSize: 18),),
-                    ),
-                  ),
+                  },
                 ),
               ],
             ),
-          ),
-        ),
+          )
+        ],
       ),
-    ));
+    );
   }
 }
